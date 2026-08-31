@@ -511,3 +511,65 @@ footer h3{
     }
 
 }
+
+/* ================= CRYSTAL STRUCTURE GALLERY ================= */
+
+.xrd-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+}
+
+.xrd-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    transition:.3s;
+}
+
+.xrd-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 40px rgba(0,0,0,.10);
+}
+
+.xrd-card img{
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:contain;
+    background:white;
+    padding:18px;
+    border-bottom:1px solid var(--border);
+    cursor:pointer;
+}
+
+.xrd-content{
+    padding:18px;
+}
+
+.xrd-content h4{
+    color:var(--blue);
+    font-size:19px;
+    margin-bottom:8px;
+}
+
+.xrd-content p{
+    color:var(--muted);
+    font-size:16px;
+    line-height:1.6;
+}
+
+/* Responsive */
+
+@media(max-width:1100px){
+    .xrd-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:768px){
+    .xrd-grid{
+        grid-template-columns:1fr;
+    }
+}
