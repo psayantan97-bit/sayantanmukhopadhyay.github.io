@@ -1,9 +1,11 @@
+
 :root{
     --blue:#0A2E6E;
     --blue-light:#1D4ED8;
     --light:#F8FBFF;
     --border:#E5E7EB;
     --text:#243041;
+    --muted:#64748B;
     --shadow:0 12px 35px rgba(0,0,0,.08);
 }
 
@@ -24,7 +26,7 @@ body{
     line-height:1.7;
 }
 
-/* ---------- HEADER ---------- */
+/* ---------------- HEADER ---------------- */
 
 header{
     position:sticky;
@@ -40,8 +42,8 @@ header{
 }
 
 .logo{
-    font-weight:700;
     font-size:20px;
+    font-weight:700;
     color:var(--blue);
 }
 
@@ -50,14 +52,14 @@ nav a{
     margin-left:28px;
     color:var(--blue);
     font-weight:600;
-    transition:.3s;
+    transition:.25s;
 }
 
 nav a:hover{
     color:var(--blue-light);
 }
 
-/* ---------- HERO ---------- */
+/* ---------------- HERO ---------------- */
 
 .hero{
     position:relative;
@@ -113,13 +115,13 @@ nav a:hover{
 
 .hero h3{
     font-size:30px;
-    margin:14px 0;
     color:var(--blue);
+    margin:14px 0;
 }
 
 .intro{
-    font-weight:600;
     color:var(--blue);
+    font-weight:600;
     margin-bottom:18px;
 }
 
@@ -145,19 +147,25 @@ nav a:hover{
     color:white;
 }
 
-/* ---------- SECTIONS ---------- */
+/* ---------------- GENERAL ---------------- */
 
 section{
-    padding:75px 8%;
+    padding:80px 8%;
 }
 
 section h2{
     font-size:36px;
     color:var(--blue);
-    margin-bottom:32px;
+    margin-bottom:14px;
 }
 
-/* ---------- CARDS ---------- */
+.section-subtitle{
+    max-width:760px;
+    color:var(--muted);
+    margin-bottom:35px;
+}
+
+/* ---------------- CARDS ---------------- */
 
 .cards{
     display:grid;
@@ -168,93 +176,152 @@ section h2{
 .card{
     background:white;
     border:1px solid var(--border);
-    border-radius:20px;
+    border-radius:22px;
     padding:28px;
     box-shadow:var(--shadow);
     transition:.3s;
 }
 
 .card:hover{
-    transform:translateY(-5px);
+    transform:translateY(-6px);
 }
 
-/* ---------- TOC CAROUSEL ---------- */
+/* ---------------- TOC GRID ---------------- */
 
-.carousel{
-    position:relative;
-    display:flex;
-    align-items:center;
-    gap:18px;
+.toc-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
 }
 
-.slides{
-    flex:1;
-    overflow:hidden;
-}
-
-.slide{
-    display:none;
-}
-
-.slide.active{
-    display:block;
-    animation:fade .55s ease;
-}
-
-.slide img{
-    width:100%;
-    border-radius:22px;
-    box-shadow:var(--shadow);
-}
-
-.caption{
-    padding-top:18px;
-}
-
-.caption h4{
-    color:var(--blue);
-    margin-bottom:6px;
-}
-
-.nav{
-    width:50px;
-    height:50px;
-    border:none;
-    border-radius:50%;
+.toc-card{
     background:white;
+    border:1px solid var(--border);
+    border-radius:22px;
+    overflow:hidden;
     box-shadow:var(--shadow);
-    cursor:pointer;
-    font-size:22px;
-    transition:.25s;
-}
-
-.nav:hover{
-    background:var(--blue);
-    color:white;
-}
-
-.dots{
-    margin-top:22px;
-    text-align:center;
-}
-
-.dot{
-    width:10px;
-    height:10px;
-    display:inline-block;
-    margin:0 6px;
-    border-radius:50%;
-    background:#CBD5E1;
-    cursor:pointer;
     transition:.3s;
 }
 
-.dot.active{
-    background:var(--blue);
-    transform:scale(1.3);
+.toc-card:hover{
+    transform:translateY(-6px);
 }
 
-/* ---------- FOOTER ---------- */
+.toc-card img{
+    width:100%;
+    height:220px;
+    object-fit:contain;
+    background:white;
+    padding:14px;
+    border-bottom:1px solid var(--border);
+}
+
+.toc-content{
+    padding:18px;
+}
+
+.toc-content h4{
+    color:var(--blue);
+    margin-bottom:8px;
+}
+
+.toc-content p{
+    font-size:15px;
+    color:var(--muted);
+}
+
+/* ---------------- DISCOVERIES ---------------- */
+
+.discovery-grid{
+    display:grid;
+    gap:28px;
+}
+
+.discovery-card{
+    display:grid;
+    grid-template-columns:340px 1fr;
+    gap:28px;
+    align-items:center;
+    background:white;
+    border:1px solid var(--border);
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    transition:.3s;
+}
+
+.discovery-card:hover{
+    transform:translateY(-4px);
+}
+
+.discovery-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.discovery-content{
+    padding:24px;
+}
+
+.discovery-content h3{
+    color:var(--blue);
+    margin-bottom:10px;
+}
+
+/* ---------------- TIMELINE ---------------- */
+
+.timeline{
+    position:relative;
+    max-width:850px;
+    margin:auto;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:18px;
+    top:0;
+    bottom:0;
+    width:3px;
+    background:var(--blue);
+}
+
+.timeline-item{
+    position:relative;
+    padding-left:60px;
+    margin-bottom:40px;
+}
+
+.timeline-dot{
+    position:absolute;
+    left:8px;
+    width:22px;
+    height:22px;
+    border-radius:50%;
+    background:var(--blue);
+    border:4px solid white;
+    box-shadow:0 0 0 3px rgba(10,46,110,.18);
+}
+
+.timeline-content{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:20px;
+    box-shadow:var(--shadow);
+}
+
+.timeline-content span{
+    color:var(--blue);
+    font-weight:700;
+}
+
+.timeline-content h3{
+    margin:6px 0;
+}
+
+/* ---------------- FOOTER ---------------- */
 
 footer{
     background:var(--blue);
@@ -270,11 +337,11 @@ footer h3{
     margin-bottom:10px;
 }
 
-/* ---------- ANIMATION ---------- */
+/* ---------------- SCROLL ANIMATION ---------------- */
 
 .fade-up{
     opacity:0;
-    transform:translateY(30px);
+    transform:translateY(28px);
     transition:all .8s ease;
 }
 
@@ -283,18 +350,19 @@ footer h3{
     transform:none;
 }
 
-@keyframes fade{
-    from{
-        opacity:.2;
-        transform:scale(.99);
-    }
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
+/* ---------------- MOBILE ---------------- */
+
+@media(max-width:992px){
+
+.toc-grid{
+    grid-template-columns:repeat(2,1fr);
 }
 
-/* ---------- MOBILE ---------- */
+.discovery-card{
+    grid-template-columns:1fr;
+}
+
+}
 
 @media(max-width:768px){
 
@@ -325,12 +393,20 @@ header nav{
     justify-content:center;
 }
 
-.carousel{
-    gap:10px;
+.toc-grid{
+    grid-template-columns:1fr;
 }
 
-.nav{
-    width:42px;
-    height:42px;
+.toc-card img{
+    height:240px;
 }
+
+.timeline::before{
+    left:14px;
+}
+
+.timeline-dot{
+    left:4px;
+}
+
 }
