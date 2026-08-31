@@ -2,37 +2,37 @@ const publications=[
 
 {
 
-journal:"Organometallics",
+journal:"Organometallic Chemistry",
 
-year:"2024",
+year:"PhD Research",
 
-title:"Substrate-Assisted Dihydroboration of Nitriles and Isocyanides",
+title:"Magnesium Hydride Catalysis and Mechanistic Investigations",
 
-doi:"#"
-
-},
-
-{
-
-journal:"ChemCatChem",
-
-year:"2024",
-
-title:"Magnesium Hydride Complexes and Hydroboration",
-
-doi:"#"
+link:"#"
 
 },
 
 {
 
-journal:"Dalton Transactions",
+journal:"Main-Group Chemistry",
 
-year:"2023",
+year:"Research",
 
-title:"Magnesium Chalcogen Transfer Chemistry",
+title:"Substrate-Assisted Activation of Nitriles and Isocyanides",
 
-doi:"#"
+link:"#"
+
+},
+
+{
+
+journal:"Reactive Magnesium Chemistry",
+
+year:"Research",
+
+title:"Chalcogen Transfer Chemistry",
+
+link:"#"
 
 }
 
@@ -52,28 +52,52 @@ grid.innerHTML+=`
 
 <small>${pub.year}</small>
 
-<br><br>
-
-<a href="${pub.doi}" target="_blank">Read Article →</a>
-
 </div>
 
 `;
 
 });
 
-const cycle=document.getElementById("catalyticCycle");
+const slides=document.querySelectorAll(".slide");
 
-let pulse=false;
+const dots=document.querySelectorAll(".dot");
+
+let current=0;
+
+function showSlide(i){
+
+slides.forEach(s=>s.classList.remove("active"));
+
+dots.forEach(d=>d.classList.remove("active"));
+
+slides[i].classList.add("active");
+
+dots[i].classList.add("active");
+
+current=i;
+
+}
+
+document.querySelector(".next").onclick=()=>{
+
+showSlide((current+1)%slides.length);
+
+};
+
+document.querySelector(".prev").onclick=()=>{
+
+showSlide((current-1+slides.length)%slides.length);
+
+};
+
+dots.forEach((dot,index)=>{
+
+dot.onclick=()=>showSlide(index);
+
+});
 
 setInterval(()=>{
 
-pulse=!pulse;
+showSlide((current+1)%slides.length);
 
-cycle.style.filter=pulse
-
-?"drop-shadow(0 0 20px rgba(29,78,216,.45))"
-
-:"drop-shadow(0 0 0 rgba(29,78,216,0))";
-
-},4000);
+},5000);
