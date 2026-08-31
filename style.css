@@ -77,17 +77,12 @@ font-weight:600;
 }
 
 .hero{
-
-display:grid;
-
-grid-template-columns:260px 1fr;
-
-gap:60px;
-
-padding:90px 8%;
-
-background:linear-gradient(135deg,#EEF5FF,#FFFFFF);
-
+    display:grid;
+    grid-template-columns:320px 1fr;   /* was 260px */
+    gap:60px;
+    padding:90px 8%;
+    position:relative;
+    overflow:hidden;
 }
 
 .hero img{
