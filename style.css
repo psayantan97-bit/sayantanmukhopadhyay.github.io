@@ -234,11 +234,12 @@ section h2{
     color:var(--blue-light);
 }
 
-/* Discoveries */
+/* ---------------- DISCOVERIES ---------------- */
 
 .discovery-grid{
     display:grid;
-    gap:36px;
+    grid-template-columns:repeat(2,1fr);
+    gap:32px;
 }
 
 .discovery-card{
@@ -256,20 +257,40 @@ section h2{
 
 .discovery-card img{
     width:100%;
-    height:420px;
-    object-fit:contain;
+    height:380px;          /* Large image */
+    object-fit:contain;    /* Keeps mechanism intact */
     background:white;
-    padding:20px;
+    padding:16px;
     border-bottom:1px solid var(--border);
 }
 
 .discovery-content{
-    padding:28px;
+    padding:22px;
 }
 
 .discovery-content h3{
     color:var(--blue);
     margin-bottom:10px;
+}
+
+/* Tablet */
+
+@media(max-width:992px){
+    .discovery-grid{
+        grid-template-columns:1fr;
+    }
+
+    .discovery-card img{
+        height:320px;
+    }
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+    .discovery-card img{
+        height:260px;
+    }
 }
 
 /* Timeline */
