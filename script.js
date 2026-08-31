@@ -12,12 +12,12 @@ entry.target.classList.add("show");
 
 });
 
-},{
-threshold:0.15
-});
+},{threshold:0.15});
 
 document.querySelectorAll(
+
 "section,.card,.toc-card,.discovery-card,.timeline-item"
+
 ).forEach(el=>{
 
 el.classList.add("fade-up");
